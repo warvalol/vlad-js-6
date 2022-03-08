@@ -11,10 +11,10 @@ import users from "./users.js";
 // };
 
 // // вар 2
-const getUsersWithFriend = (users, friendName) =>
-  users
-    .filter((user) => user.friends.some((friends) => friends === friendName))
-    .map((user) => user.name);
+// const getUsersWithFriend = (users, friendName) =>
+//   users
+//     .filter((user) => user.friends.some((friends) => friends === friendName))
+//     .map((user) => user.name);
 
 // // вар 3
 // const getUsersWithFriend = (users, friendName) => {
@@ -30,6 +30,18 @@ const getUsersWithFriend = (users, friendName) =>
 //   }, []);
 //   return arreyNameFriends;
 // };
+
+// вар 4
+// const getUsersWithFriend = (users, friendName) => {
+//   return users.filter((user) => {
+//     return user.friends.includes(friendName);
+//   });
+// };
+
+// вар 5 с деструктуризацией
+const getUsersWithFriend = (user, friendName) => {
+  return users.filter(({ friends }) => friends.includes(friendName));
+};
 
 console.log(getUsersWithFriend(users, "Briana Decker"));
 // [ 'Sharlene Bush', 'Sheree Anthony' ]
